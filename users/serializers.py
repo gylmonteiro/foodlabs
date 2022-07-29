@@ -27,6 +27,9 @@ class UserSerializer(serializers.Serializer):
         if "address" in non_editable_keys:
             raise KeyError
         
+        for keys, values in validated_data.items:
+            
+
         instance.save()
 
         return instance
