@@ -1,4 +1,3 @@
-from functools import partial
 from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView, Response, status
 from users.models import User
@@ -56,7 +55,7 @@ class UserViewDetails(APIView):
         try:
             user_serializer.save()
         except KeyError:
-            return Response({"errors": "não pode atualizar o endereço"}, status.HTTP_400_BAD_REQUEST)
+            return Response({"errors": "não pode atualizar o endereço, nesta rota"}, status.HTTP_400_BAD_REQUEST)
 
         return Response(user_serializer.data)
 
